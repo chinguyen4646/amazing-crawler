@@ -1,6 +1,6 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started (in development)
+## Running app (without Docker)
 
 1. First, run the development server:
 
@@ -16,7 +16,7 @@ pnpm dev
 
 3. Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-## Running test(s)
+### Running test(s)
 
 To run the whole suite of tests run:
 ```
@@ -27,8 +27,50 @@ To run a specific test file run:
 npm test -- path/to/test-file.test.ts
 ```
 
+## Running app using Docker
+In order to run this app in a Docker container, you need to have Docker installed. Here's how to get the app running with Docker:
+
+1. Install Docker: For instructions, visit the official Docker installation guide.
+
+2. Navigate to the root directory of the project in your terminal.
+
+3. Run the script to build the Docker image and run the container:
+```
+bash start-app.sh
+```
+
+4. You should see a message indicating that the container is running and accessible at http://localhost:8080.
+
+5. To stop the Docker container, use this command:
+```
+docker stop amazing-crawler-app
+```
+
+6. To start the Docker container again (once it's been built and run initially), use this command:
+```
+docker start amazing-crawler-app
+```
+
+### Running test(s) in Docker
+
+1. If you want to run all the tests using a script you can do:
+```
+bash run-tests.sh
+```
+
+2. If you want to run a single test file:
+```
+bash run-tests.sh /src/tests/my-test.test.js
+```
+
+3. If you don't want to use a script run:
+```
+docker exec amazing-crawler-app npm run test
+docker exec amazing-crawler-app npm test -- /src/tests/my-test.test.js
+```
+
 ## How the Crawler class works
-The Crawler class is designed to recursively crawl websites and gather certain information from each page. This class leverages axios for making HTTP requests, cheerio for parsing the HTML returned, and url for URL resolution and parsing.
+The Crawler class is designed to recursively crawl websites and gather certain information from each page. This class leverages axios for making HTTP requhests, cheerio for parsing the HTML returned, and url for URL resolution and parsing.
 
 The Crawler class maintains two important data structures:
 
