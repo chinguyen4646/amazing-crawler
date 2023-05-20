@@ -1,5 +1,5 @@
 import axios from "axios";
-import Crawler from "./Crawler";
+import Crawler from "../Crawler";
 
 jest.mock("axios");
 

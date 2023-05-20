@@ -1,4 +1,4 @@
-import { truncateText } from "./textHelpers";
+import { truncateText } from "../../helpers/textHelpers";
 
 describe("truncateText", () => {
   test("Should not truncate text when length is less than or equal to maxLength", () => {

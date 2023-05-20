@@ -1,4 +1,4 @@
-import { isValidDomain, getBaseDomain } from "./urlHelpers";
+import { isValidDomain, getBaseDomain } from "../../helpers/urlHelpers";
 
 describe("isValidDomain", () => {
   test("Should return true for a valid domain", () => {

@@ -2,7 +2,7 @@ import React from "react";
 import { render, screen, fireEvent } from "@testing-library/react";
 import axios from "axios";
 import { act } from "react-dom/test-utils";
-import Home from "../pages/index";
+import Home from "../../pages/index";
 
 jest.mock("axios");
 

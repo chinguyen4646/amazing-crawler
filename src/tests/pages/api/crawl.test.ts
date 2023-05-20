@@ -1,8 +1,8 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import handler from "./crawl";
-import Crawler from "../../Crawler";
+import handler from "../../../pages/api/crawl";
+import Crawler from "../../../Crawler";
 
-jest.mock("../../Crawler");
+jest.mock("../../../Crawler");
 
 // Unit tests which mocks req and res but doesn't make http request to server
 describe("Crawl API route handler", () => {

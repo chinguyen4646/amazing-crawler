@@ -1,4 +1,4 @@
-import { pause } from "./delayHelpers";
+import { pause } from "../../helpers/delayHelpers";
 
 describe("pause", () => {
   test("Should pause for the specified duration", async () => {
