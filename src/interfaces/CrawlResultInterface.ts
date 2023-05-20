@@ -5,4 +5,4 @@ export default interface CrawlResultInterface {
   staticAssets: string[];
   textContent: string;
   url: string;
-};
+}
