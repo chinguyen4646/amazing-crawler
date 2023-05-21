@@ -9,10 +9,10 @@ echo "Building Docker image..."
 docker build -t ${IMAGE_NAME} .
 
 # Check if a container with the same name is already running, and if so, stop it
-if [ $(docker ps -q -f name=${IMAGE_NAME}) ]; then
-    echo "Container with name ${IMAGE_NAME} is already running. Stopping and removing it..."
-    docker stop ${IMAGE_NAME}
-    docker rm ${IMAGE_NAME}
+if [ $(docker ps -a -q -f name=^/${CONTAINER_NAME}$) ]; then
+    echo "Container with name ${CONTAINER_NAME} is already running or exists. Stopping and removing it..."
+    docker stop ${CONTAINER_NAME}
+    docker rm ${CONTAINER_NAME}
 fi
 
 # Run the Docker container

@@ -1,20 +1,15 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
-
 ## Running app (without Docker)
 
-1. First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
+1. Begin by installing deps: 
+```
+npm install
 ```
 
-2. Install deps by running `npm install` 
-
-3. Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Run the development server:
+```bash
+npm run dev
+```
+3. Open [http://localhost:3000](http://localhost:3000) with your browser to see the app.
 
 ### Running test(s)
 
@@ -30,11 +25,14 @@ npm test -- path/to/test-file.test.ts
 ## Running app using Docker
 In order to run this app in a Docker container, you need to have Docker installed. Here's how to get the app running with Docker:
 
+ - <b>If you are using a Windows machine you will need to use tools such as Git Bash, Windows Subsystem for Linux or Cygwin, to run the shell script(s).</b> (https://mspoweruser.com/different-ways-to-run-shell-script-files-on-windows/)
+ - <b>Linux/Mac OS users can run the scripts without doing the above.</b>
+
 1. Install Docker: For instructions, visit the official Docker installation guide.
 
 2. Navigate to the root directory of the project in your terminal.
 
-3. Run the script to build the Docker image and run the container:
+3. Run the `start-app.sh` script to build the Docker image and run the container:
 ```
 bash start-app.sh
 ```
@@ -63,10 +61,10 @@ bash run-tests.sh
 bash run-tests.sh /src/tests/my-test.test.js
 ```
 
-3. If you don't want to use a script run:
+3. If you don't want to use a script, you can run:
 ```
-docker exec amazing-crawler-app npm run test
-docker exec amazing-crawler-app npm test -- /src/tests/my-test.test.js
+docker exec amazing-crawler-app npm run test (all tests)
+docker exec amazing-crawler-app npm test -- /src/tests/my-test.test.js (single test)
 ```
 
 ## How the Crawler class works

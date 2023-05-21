@@ -1,15 +1,21 @@
 import React, { useState, useRef } from "react";
 import axios from "axios";
 import UrlInputForm from "../components/UrlInputForm";
-import { Box, CircularProgress, Typography, Button } from "@mui/material";
+import { Box, CircularProgress, Typography, Button, useMediaQuery } from "@mui/material";
 import CrawlResultsTable from "../components/CrawlResultsTable";
 import CrawlResults from "../interfaces/CrawlResultsInterface";
+import { useTheme } from "@mui/material/styles";
 
 const Home: React.FC = () => {
   const [selectedUrl, setSelectedUrl] = useState<string>("");
   const [crawlResults, setCrawlResults] = useState<CrawlResults | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
   const inputRef = useRef<HTMLInputElement | null>(null);
+
+  // Media queries for screen size
+  const theme = useTheme();
+  const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
+  const isMediumScreen = useMediaQuery(theme.breakpoints.between("sm", "md"));
 
   const submitCrawlRequest = async (url: string) => {
     try {
@@ -53,8 +59,13 @@ const Home: React.FC = () => {
       minHeight="100vh"
       padding={2}
     >
-      <Typography variant="h3" gutterBottom fontWeight={900}>
-          Fig Finance Crawler
+      <Typography 
+        variant={isSmallScreen ? "h4" : isMediumScreen ? "h3" : "h2"} 
+        textAlign="center" 
+        gutterBottom 
+        fontWeight={900}
+      >
+        Fig Finance Crawler
       </Typography>
       <UrlInputForm
         onSubmit={submitCrawlRequest}
@@ -70,7 +81,7 @@ const Home: React.FC = () => {
           crawlResults && (
             <>
               <Button variant="contained" onClick={handleReset} color="secondary">
-                  Reset crawler
+                Reset crawler
               </Button>
               <CrawlResultsTable crawlResults={crawlResults} />
             </>

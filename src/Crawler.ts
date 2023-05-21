@@ -16,6 +16,7 @@ export default class Crawler {
     if (!Crawler._cacheInvalidationScheduled) {
       Crawler._scheduleCacheInvalidation();
       Crawler._cacheInvalidationScheduled = true;
+      console.log("Cache invalidation scheduled timer started...")
     }  
   }
 
